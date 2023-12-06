@@ -10,6 +10,7 @@
     "build-chrome": "./scripts/build.sh chrome",
     "build": "npm run clean && npm run build-firefox && npm run build-chrome",
     "storybook": "storybook dev -p 6006",
+    "vulns": "snyk test",
     "test": "tap --node-arg=--require=global-jsdom/register --disable-coverage --allow-empty-coverage run"
   },
   "dependencies": {
