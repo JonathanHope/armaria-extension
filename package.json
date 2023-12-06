@@ -1,6 +1,6 @@
 {
   "name": "armaria-firefox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "clean": "rm -rf dist && rm -rf .parcel-cache",
     "check": "tsc --noEmit",
