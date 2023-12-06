@@ -1,0 +1,13 @@
+@font-face {
+  font-family: Alegreya-Bold;
+  src: url("./font/alegreya.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Bitter;
+  src: url("./font/bitter.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
