@@ -39,3 +39,8 @@ jobs:
       - name: Build
         run: npm run build
         shell: nix develop --command bash -e {0}
+      - name: Vulns
+        run: snyk auth $SNYK_TOKEN && npm run vulns
+        shell: nix develop --command bash -e {0}
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

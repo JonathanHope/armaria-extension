@@ -18,6 +18,7 @@
           buildInputs = with pkgs;[
             nodejs_20
             jq
+            snyk
           ];
           shellHook = ''
             export PATH=$PWD/tools:$PATH
