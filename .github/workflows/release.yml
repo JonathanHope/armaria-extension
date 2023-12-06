@@ -1,0 +1,30 @@
+name: Release Armaria Extension
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  realease:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+      - name: Install
+        run: npm install
+        shell: nix develop --command bash -e {0}
+      - name: Build
+        run: npm run build
+        shell: nix develop --command bash -e {0}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/firefox/*.zip
+            dist/chrome/*.zip

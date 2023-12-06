@@ -1,0 +1,41 @@
+name: Build, Test and Lint Armaria Extension
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check Versions
+        run: ./scripts/check-versions.sh
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+      - name: Install
+        run: npm install
+        shell: nix develop --command bash -e {0}
+      - name: Check
+        run: npm run check
+        shell: nix develop --command bash -e {0}
+      - name: Test
+        run: npm run test
+        shell: nix develop --command bash -e {0}
+      - name: Lint
+        run: npm run lint
+        shell: nix develop --command bash -e {0}
+      - name: Build
+        run: npm run build
+        shell: nix develop --command bash -e {0}

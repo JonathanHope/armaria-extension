@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Armaria",
+  "description": "Armaria is a fast, open, and local first bookmarks manager.",
+  "version": "0.0.2",
+  "icons": {
+    "48": "cabinet-light-128.svg",
+    "96": "cabinet-light-128.svg"
+  },
+  "action": {
+    "default_icon": "cabinet-light-128.svg",
+    "default_title": "Armaria",
+    "default_popup": "add-book.html"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      }
+    }
+  },
+  "background": {
+    "scripts": ["native-messaging.js"]
+  },
+  "permissions": [
+    "nativeMessaging",
+    "tabs"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "armaria@armaria.net"
+    }
+  }
+}
