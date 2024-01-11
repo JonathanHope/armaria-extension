@@ -1,0 +1,17 @@
+* Release Documentation
+
+The Armaria extension needs to get uploaded to a lot of different places after it is released.
+
+** Triggering the Release
+
+The release is triggered by pushing a tag on main up GitHub. First update the version in the ~package.json~ file and run ~npm install~ to update ~package-lock.json~. Then invoke ~scripts/tag.sh~ to push a tag matching the version in ~package.json~ up to GitHub.
+
+The artifacts can then be downloaded [[https://github.com/JonathanHope/armaria-extension/releases][here]].
+
+** Firefox
+
+The Firefox extensions can be manually uploaded [[https://addons.mozilla.org/en-US/developers/addon/armaria/edit][here]].
+
+** Chrome/Chromium
+
+The Chrome extension can be manually uploaded [[https://chrome.google.com/webstore/devconsole/bfb0c189-dfc4-46ea-8306-4ede58f7e14a/fbnilfpngakppdkddndcnckolmlpghdf/edit/package][here]].
